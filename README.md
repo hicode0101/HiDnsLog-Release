@@ -1,6 +1,24 @@
 # HiDnsLog-Release
 Release HiDnsLog
 
+```
+
+一个可查询和管理DNS解析记录的工具，支持DNSlog 私有化部署，即使用自己的域名。
+
+支持完整的DNS Server 功能，支持自动从其它DNS Server返回解析记录。
+
+目前支持 A、AAAA、CNAME、MX、TXT 记录，白帽子师傅完全够用。
+
+支持域名解析自动二次绑定（绕过一些检测）。
+
+支持TTL 设置为 0，这是白帽必备功能，且几乎所有域名服务商都不支持，所以要用自己的。
+
+支持 A记录、CNAME记录的重绑定，并且支持指定重绑定的解析顺序，一切尽在你的掌控中，无需大量随机碰撞。
+
+*支持SSRF跳转漏洞测试，支持Burp Collaborator。
+
+
+```
 
 
 
