@@ -21,8 +21,13 @@ Release HiDnsLog
 ```
 
 
+# HiDnsLog-安装和使用
 
-安装部署详细教程下周抽时间补上，先简单说一下安装步骤：
+https://www.bilibili.com/video/BV1UPSgBPERq
+
+
+
+下面先简单说一下安装步骤：
 ```
 运行方式1：直接运行服务
 ./hidnslog_linux_amd64
