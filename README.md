@@ -108,3 +108,93 @@ v1.2.1
 ```
 
 
+# 下面给出 http.json 配置文件的范例
+
+```
+
+{
+  "HttpModule": "on",
+  "Description": "HttpModule 为 on 时本配置生效，为 off 时 http 模块不运行",
+  "WebServers": [
+    {
+      "ServerType": "HTTP",
+      "ListenAddr": ":80",
+      "RealServers": [
+        {
+          "HostName": "<default>",
+          "SType": "static",
+          "Static": {
+            "WebRoot": "./html",
+            "DefaultPage": "index.html",
+            "ListDir": false
+          }
+        },
+        {
+          "HostName": "text.t6s.top",
+          "SType": "text",
+          "Text": {
+            "TextContent": "OK",
+            "ContentType": "text/plain",
+            "StatusCode": 200
+          }
+        },
+        {
+          "HostName": "ssrf.t6s.top",
+          "SType": "redirect",
+          "Redirect": {
+            "TargetUrl": "https://ssrf.xxx.com",
+            "RedirectCode": 302,
+            "PreservePath": true,
+            "PreserveQuery": true
+          }
+        }
+      ]
+    },
+    {
+      "ServerType": "HTTPS",
+      "ListenAddr": ":443",
+      "RealServers": [
+        {
+          "HostName": "t.t6s.top",
+          "CertFile": "./sslcert/t.t6s.top.crt",
+          "KeyFile": "./sslcert/t.t6s.top.key",
+          "SType": "text",
+          "Text": {
+            "TextContent": "OK",
+            "ContentType": "text/plain",
+            "StatusCode": 200
+          }
+        },
+        {
+          "HostName": "test1.t6s.top",
+          "CertFile": "./sslcert/test1.t6s.top.crt",
+          "KeyFile": "./sslcert/test1.t6s.top.key",
+          "SType": "redirect",
+          "Redirect": {
+            "TargetUrl": "https://ssrf.xxx.com",
+            "RedirectCode": 302,
+            "PreservePath": true,
+            "PreserveQuery": true
+          }
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+
+
+HttpModule 开启时，如果您配置了 HTTPS 站点，则需要对应的证书文件，默认建议存放在该目录下。
+
+主机头配置 <default> 为特殊主机头，表示所有域名都匹配不成功时，默认该站点配置。
+
+HTTPS 的 <default> 站点，默认加载下面路径的证书文件：
+
+./sslcert/default.crt
+./sslcert/default.key
+
+注意：HiDnsLog 并不会把 sslcert 目录对外访问，也无法被外部下载，只有服务程序可以读取到。
+
+
