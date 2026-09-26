@@ -1,5 +1,16 @@
-# HiDnsLog-Release
-Release HiDnsLog
+<div align="center">
+
+# HiDnsLog
+
+> 可私有化部署的 DNSLog 平台，解析规则尽在掌控。
+
+
+
+  
+[![Release](https://img.shields.io/badge/%F0%9F%9B%A0%EF%B8%8F_%E8%8E%B7%E5%8F%96%E5%B7%A5%E5%85%B7-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%8B%E8%BD%BD-F0883E?logo=github&logoColor=white)](https://github.com/hicode0101/HiDnsLog-Release/releases)
+
+</div>
+
 
 ```
 
